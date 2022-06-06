@@ -16,13 +16,14 @@ public class Main {
 
     private static void printCountDuplicates(List<String> words) {
         Map<String, Integer> wordsMap = new HashMap<>();
+
         for (String word : words) {
-            if (wordsMap.containsKey(word)) {
-                Integer val = wordsMap.get(word);
-                wordsMap.put(word,  ++val);
-            } else {
-                wordsMap.put(word, 1);
-            }
+//            Integer count = wordsMap.get(word);
+//            if(count == null){
+//                count = 0;
+//            }
+//            wordsMap.put(word, count + 1);
+            wordsMap.merge(word, 1, Integer::sum);
         }
         for (Integer value : wordsMap.values()) {
             if (value > 1) {
@@ -54,7 +55,8 @@ public class Main {
                 }
             }
         }
-        Collections.sort(resultList);
+//        Collections.sort(resultList);
+        resultList.sort(Integer::compareTo);
         System.out.println(resultList);
     }
 
