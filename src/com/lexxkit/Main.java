@@ -23,6 +23,7 @@ public class Main {
 //                count = 0;
 //            }
 //            wordsMap.put(word, count + 1);
+
             wordsMap.merge(word, 1, Integer::sum);
         }
         for (Integer value : wordsMap.values()) {
