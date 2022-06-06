@@ -11,6 +11,24 @@ public class Main {
         printEvenNumbersAscending(nums);
         List<String> words = List.of("one two one four two five three".split(" "));
         printUniqueWords(words);
+        printCountDuplicates(words);
+    }
+
+    private static void printCountDuplicates(List<String> words) {
+        Map<String, Integer> wordsMap = new HashMap<>();
+        for (String word : words) {
+            if (wordsMap.containsKey(word)) {
+                Integer val = wordsMap.get(word);
+                wordsMap.put(word,  ++val);
+            } else {
+                wordsMap.put(word, 1);
+            }
+        }
+        for (Integer value : wordsMap.values()) {
+            if (value > 1) {
+                System.out.print(value + " ");
+            }
+        }
     }
 
     private static void printUniqueWords(List<String> words) {
