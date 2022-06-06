@@ -9,6 +9,13 @@ public class Main {
         printOddNumbers(nums);
         System.out.println();
         printEvenNumbersAscending(nums);
+        List<String> words = List.of("one two one four two five three".split(" "));
+        printUniqueWords(words);
+    }
+
+    private static void printUniqueWords(List<String> words) {
+        Set<String> result = new HashSet<>(words);
+        System.out.println(result);
     }
 
     private static void printEvenNumbersAscending(List<Integer> nums) {
